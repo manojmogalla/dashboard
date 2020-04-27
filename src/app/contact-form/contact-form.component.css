@@ -1,0 +1,22 @@
+.form-group {
+  margin-bottom: 0.4rem;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
+
+.text-muted {
+  color: red!important;
+}
+label{
+    font-size: .8rem;
+}
+.alert{
+    font-size: .9rem;
+}
+ input:focus{
+    color: #656566fa;
+    border: 1px solid #c9caca;
+}

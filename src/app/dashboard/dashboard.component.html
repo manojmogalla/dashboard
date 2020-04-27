@@ -1,0 +1,192 @@
+<div class="container-fluid">
+  <div class="d-flex pt-2">
+    <h4 class="mb-4 text-muted t ml-auto"> <span class="badge badge-warning rounded-0 text-dark p-1">COVID-19 Daily
+        Updates</span> </h4>
+  </div>
+  <div class="row">
+
+    <div class="col-md-6 col-lg-3 ">
+      <div class="card border-0 rounded-0">
+        <div class="card-body">
+          <div class="card-innerBody d-flex align-items-center">
+            <div class="card-icon text-light">
+              <i class="fa fa-users" aria-hidden="true"></i>
+            </div>
+            <div class="ml-auto">
+              <p class="card-label text-right text-muted">Total Cases</p>
+              <h4 class="card-text text-right ">{{this.totalCovidCases}}</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex ">
+          <small class="text-muted">Since last month</small>
+          <small class="text-success ml-auto">
+            <i class="fa fa-caret-up" aria-hidden="true"></i>
+            5,35%
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 ">
+      <div class="card border-0 rounded-0">
+        <div class="card-body">
+          <div class="card-innerBody d-flex align-items-center">
+            <div class="card-icon text-light">
+              <i class="fa fa-external-link-square" aria-hidden="true"></i>
+            </div>
+            <div class="ml-auto">
+              <p class="card-label text-right text-muted">New Cases</p>
+              <h4 class="card-text text-right ">{{this.newCovidCases}}</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex ">
+          <small class="text-muted">Since last month</small>
+          <small class="text-success ml-auto">
+            <i class="fa fa-caret-up" aria-hidden="true"></i>
+            3.06%
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 ">
+      <div class="card border-0 rounded-0">
+        <div class="card-body">
+          <div class="card-innerBody d-flex align-items-center">
+            <div class="card-icon text-light">
+              <i class="fa fa-heartbeat" aria-hidden="true"></i>
+            </div>
+            <div class="ml-auto">
+              <p class="card-label text-right text-muted">Recovered</p>
+              <h4 class="card-text text-right ">{{this.recoveredCovidCases}}</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex ">
+          <small class="text-muted">Since last month</small>
+          <small class="text-danger ml-auto">
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+            2,81%
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 ">
+      <div class="card border-0 rounded-0">
+        <div class="card-body">
+          <div class="card-innerBody d-flex align-items-center">
+            <div class="card-icon text-light">
+              <i class="fa fa-bed" aria-hidden="true"></i>
+            </div>
+            <div class="ml-auto">
+              <p class="card-label text-right text-muted">Deaths</p>
+              <h4 class="card-text text-right "> {{this.deathCovidCases}}</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex ">
+          <small class="text-muted">Since last month</small>
+          <small class="text-success ml-auto">
+            <i class="fa fa-caret-up" aria-hidden="true"></i>
+            1,74%
+          </small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="row">
+    <div class="col-12 col-xl-6 mb-4 align-items-stretch">
+      <div class="card h-100 border-0 rounded-0">
+        <div class="card-title mb-1 p-3 d-flex">
+          <h6>Andhra Pradesh Corona Cases District Wise Graph</h6>
+          <a class="btn ml-auto p-0 text-lightning"> <i class="fa fa-line-chart"></i> </a>
+        </div>
+        <div class="card-body">
+          <div class="chart-container d-flex h-100 align-items-center justify-content-center"
+            style="position: relative;">
+            <canvas id="chart-line" width="2" height="1"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-xl-6 mb-4 align-items-stretch">
+      <div class="card h-100 border-0 rounded-0">
+        <div class="card-title mb-1 p-3 d-flex">
+          <h6>World Wide Corona Cases Chart</h6>
+          <a class="btn ml-auto p-0 text-lightning"> <i class="fa fa-pie-chart"></i> </a>
+        </div>
+        <div class="card-body">
+          <div class="chart-container d-flex h-100 align-items-center justify-content-center"
+            style="position: relative;">
+            <canvas id="doughnut" style="height:80%"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-xl-6 mb-4 align-items-stretch">
+      <div class="card h-100 border-0 rounded-0">
+        <div class="card-title mb-1 p-3 d-flex">
+          <h6>Telangana Active Corona Cases Pie Chart</h6>
+          <a class="btn ml-auto p-0 text-lightning"> <i class="fa fa-pie-chart"></i> </a>
+        </div>
+        <div class="card-body">
+          <div class="chart-container d-flex h-100 align-items-center justify-content-center"
+            style="position: relative;">
+            <canvas id="chart-pie" width="100%"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-xl-6 mb-4 align-items-stretch">
+      <div class="card h-100 border-0 rounded-0">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="mb-1 p-3 d-flex">
+              <h5> <span class="badge badge-primary rounded-0 text-light p-1">Hospital Bills</span></h5>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="input-group p-2">
+              <input class="form-control py-2 border-right-0 border" type="search" [(ngModel)]="searchText"
+                autocomplete="off" placeholder="Patient Name">
+              <span class="input-group-append">
+                <div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive-md">
+            <div class="table-responsive table-wrap ">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width:40%;">Patient</th>
+                    <th class="number">Age</th>
+                    <th class="number">Bills</th>
+                  </tr>
+                </thead>
+                <tbody class="no-border-x">
+                  <tr *ngFor=" let patient of patientData | filter:searchText">
+                    <td>{{patient.employee_name}}</td>
+                    <td class="number">{{patient.employee_age}}</td>
+                    <td class="number">${{patient.employee_salary}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

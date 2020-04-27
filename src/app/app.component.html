@@ -1,0 +1,63 @@
+<!-- Container for sidebar(s) + page content -->
+<ng-sidebar-container style="height: 100vh;">
+
+  <!-- A sidebar -->
+  <ng-sidebar [(opened)]="_opened" position="left" mode="{{slideType}}">
+    <aside class="sidebar shadow-sm">
+      <div class="sidebar-profile d-flex flex-column justify-content-center pt-5 pb-3">
+        <div class="picture-wrapper mb-4">
+          <div class="user-picture m-auto">
+            <img src="./assets/img/user.jpg" class="img-fluid" alt="">
+          </div>
+        </div>
+        <div class="profile-details text-center pb-4">
+          <p class="mb-0 text-uppercase name">Manoj Mogalla</p>
+          <small class="text-uppercase role">Administrator</small>
+        </div>
+      </div>
+      <div class="sidebar-search pt-1 pb-1 pl-3 pr-3">
+        <input type="search" class="form-control rounded-pill" name="search" placeholder="Search ...">
+      </div>
+      <nav class="sidebar-menu pt-3 pb-3">
+        <div class="menu-header mt-3 mb-2">
+          Components
+        </div>
+        <ul class="menu-items">
+          <li>
+            <a (click)="_toggleSidebar()" routerLink="/" routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}">
+              <i class="fa fa-tachometer"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a (click)="_toggleSidebar()" routerLink="/contact" routerLinkActive="active">
+              <i class="fa fa-envelope-o"></i>
+              <span>Contact</span>
+            </a>
+          </li>
+        </ul>
+        <div class="menu-header mt-4 mb-2">
+          StackOverflow
+        </div>
+        <ul class="menu-items">
+          <li>
+            <a href="https://stackoverflow.com/users/9380480/sai-manoj?tab=profile" target="_blank">
+              <i class="fa fa-stack-overflow" aria-hidden="true"></i>
+              <span>Click to View</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </ng-sidebar>
+
+  <!-- Page content -->
+  <div ng-sidebar-content>
+    <div class="hamburger-icon text-light toggle-button" (click)="_toggleSidebar()">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+
+</ng-sidebar-container>

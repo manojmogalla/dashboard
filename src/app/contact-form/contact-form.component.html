@@ -1,0 +1,75 @@
+<div class="container-fluid">
+  <div class="d-flex pt-2">
+    <h4 class="mb-4 text-muted t ml-auto"> 
+        <span class="badge badge-warning rounded-0 text-dark p-1">Let's get Connected</span>
+    </h4>
+  </div>
+
+  <div class="col-12 col-xl-6 mb-4 align-items-stretch offset-sm-3">
+    <div class="alert alert-info">
+        <strong>Info!</strong> The below form  works only if you enter business email. It validates all fields including business email
+      </div>
+    <div class="card h-100 border-0 shadow p-3 mb-5 bg-white rounded">
+      <div class="card-title mb-1 p-3 d-flex">
+        <h5>
+            Business email validator Contact form </h5>
+        <a class="btn ml-auto p-0 text-lightning"> <i class="fa fa-briefcase"></i> </a>
+      </div>
+      <div class="card-body">
+        <div class="p-2">
+          <form [formGroup]="contactForm" (ngSubmit)="verifyForm()">
+            <div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Name</label>
+                <input type="text" class="form-control" formControlName="name"
+                  [class.invalid]="!contactForm.controls['name'].valid && contactForm.controls['name'].touched">
+                <div class="error-message error-message-text"
+                  *ngIf="!contactForm.controls['name'].valid && (contactForm.controls['name'].touched || isSubmitted)">
+                  <small class="form-text text-muted">Please enter a valid name</small>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Business Email address</label>
+                <input type="email" class="form-control" formControlName="email"
+                  [class.invalid]="!contactForm.controls['email'].valid && contactForm.controls['email'].touched">
+                <div class="error-message error-message-text"
+                  *ngIf="!contactForm.controls['email'].valid && (contactForm.controls['email'].touched || isSubmitted)">
+                  <small class="form-text text-muted">Please enter a valid business email</small>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Mobile Number</label>
+                <input type="text" class="form-control"  (keypress)="keyPress($event)" minlength=10 maxlength=10 formControlName="mobile"
+                  [class.invalid]="!contactForm.controls['mobile'].valid && contactForm.controls['mobile'].touched">
+                <div class="error-message error-message-text"
+                  *ngIf="!contactForm.controls['mobile'].valid && (contactForm.controls['mobile'].touched || isSubmitted)">
+                  <small class="form-text text-muted">Please enter a valid Mobile Number</small>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Message</label>
+                <textarea class="form-control" formControlName="textArea" rows="3"
+                  [class.invalid]="!contactForm.controls['textArea'].valid && contactForm.controls['textArea'].touched"></textarea>
+                <div class="error-message error-message-text"
+                  *ngIf="!contactForm.controls['textArea'].valid && (contactForm.controls['textArea'].touched || isSubmitted)">
+                  <small class="form-text text-muted">Please enter description</small>
+                </div>
+              </div>
+            </div>
+
+            <div text-center padding-bottom>
+              <button color="light" class="btn btn-primary" [disabled]="!contactForm.valid">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
