@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   response: string[];
   activeCases: number[];
   active: any;
- 
+
   recoveredCases: number[];
   districtsInAndhra: string[];
   dataSetOfGlobalCovidStatusValues: any;
@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
   chart: any;
   doughnut: any;
   pie: any;
+  error = null;
 
   constructor(private covidStatusService: CovidStatusService) { }
 
@@ -156,12 +157,11 @@ export class DashboardComponent implements OnInit {
         data: {
           datasets: [{
             data: this.activeCasesInTs.reverse(),
-            backgroundColor: ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 
-            '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
-            '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A', 
-            '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
-            '#66994D', '#B366CC', '#4D8000', '#B33300', '#CC80CC', 
-            '#66664D', '#991AFF', '#E666FF', '#4DB3FF'],
+            backgroundColor: ["#06e052", "#e3a481", "#0eb621", "#fc458e", "#b2db15", "#aa226d", "#792ed8",
+              "#73872a", "#520d3a", "#cefcb8", "#a5b3d9", "#7d1d85", "#c4fd57", "#f1ae16",
+              "#8fe22a", "#ef6e3c", "#243eeb", "#1dc18", "#dd93fd", "#3f8473", "#e7dbce",
+              "#421f79", "#7a3d93", "#635f6d", "#93f2d7", "#9b5c2a", "#15b9ee", "#0f5997",
+              "#409188", "#911e20"],
             label: 'Active'
           }],
           labels: this.telanganaState,
@@ -174,7 +174,10 @@ export class DashboardComponent implements OnInit {
   displayPatientDetails(): void {
     this.covidStatusService.getPatientDetails().subscribe(patients => {
       this.patientData = patients.data;
-    });
+    }, error => {
+      this.error = error.message;// error handling
+    }
+    );
   }
 }
 

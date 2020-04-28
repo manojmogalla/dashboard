@@ -19,7 +19,7 @@ export class CovidStatusService {
 
   /*dummy api fot table sorting */
   getPatientDetails() {
-    return this.http.get<any>('https://dummy.restapiexample.com/api/v1/employees');
+    return this.http.get<any>('https://api.npoint.io/f7566397b63382426c6c');
 
   }
 

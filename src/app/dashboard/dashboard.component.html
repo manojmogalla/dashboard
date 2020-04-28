@@ -165,7 +165,7 @@
         <div class="card-body">
           <div class="table-responsive-md">
             <div class="table-responsive table-wrap ">
-              <table class="table">
+              <table class="table" *ngIf="!error">
                 <thead>
                   <tr>
                     <th style="width:40%;">Patient</th>
@@ -174,13 +174,20 @@
                   </tr>
                 </thead>
                 <tbody class="no-border-x">
+                 
                   <tr *ngFor=" let patient of patientData | filter:searchText">
-                    <td>{{patient.employee_name}}</td>
-                    <td class="number">{{patient.employee_age}}</td>
-                    <td class="number">${{patient.employee_salary}}</td>
+                    <td>{{patient.patient_name}}</td>
+                    <td class="number">{{patient.patient_age}}</td>
+                    <td class="number">${{patient.patient_bills}}</td>
                   </tr>
                 </tbody>
               </table>
+              <div *ngIf="error">
+                <div class= "alert alert-danger">
+                  <h1>An Error Occured </h1>
+                  <p>{{this.error}}</p>
+                </div>
+               </div>
             </div>
           </div>
         </div>
